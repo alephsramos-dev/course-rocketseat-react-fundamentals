@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rocketseat - React.js - Fundamentos</title>
+</head>
+<body>
+
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script> <!-- Biblioteca de estilos externas, exportada via CDN -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+
+        function Button({
+            buttonText = buttonText || 'Default'
+        }){
+            return (
+                <button className={variant === 'primary' ? 'bg-purple-600' : 'bg-gray-400'}> <!-- Se o valor da variant for igual a 'primaty' ele irá definir o 'bg-purple-600' com base no '?' se não for com base no ':' ele irá definir 'bg-gray-400' -->
+                    {buttonText}        
+                </button>
+            )
+        }
+ 
+        function App() {
+            return (
+                <main className="flex gap-2 p-3">
+                    <Button 
+                        buttonText="Entrar em contato"
+                    />
+                    <Button />
+                </main>
+            )
+        }
+
+        ReactDOM.createRoot(document.getElementById('root')).render(
+            <App />
+        )
+    </script> <!-- Babel é um transpilador de código, no react vai servir para pegar o padrão de código JSX e transformar em um código JS que o Browser consiga ler -->
+
+</body>
+</html>
